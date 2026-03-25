@@ -2,7 +2,7 @@ name: main
 
 on:
   push:
-    branches: [master]
+    branches: [master, modernize-testing-for-newer-python-versions]
     tags: ['*']
   pull_request:
     paths-ignore:
