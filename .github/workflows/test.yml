@@ -30,7 +30,7 @@ jobs:
     - name: install python dependencies
       run: |
         pip install --upgrade pip setuptools wheel && \
-        python setup.py install && \
+        pip install .
         test ${{ matrix.msgpack }} == 1 && pip install msgpack; \
         pip install pyflakes pycodestyle docutils codecov black==22.8.0
     - name: test
