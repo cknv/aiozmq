@@ -11,11 +11,11 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     strategy:
       fail-fast: false
       matrix:
-        python: ['3.6', '3.7', '3.8', '3.9', '3.10', '3.11']
+        python: ['3.7', '3.8', '3.9', '3.10', '3.11']
         msgpack: ['', '1']
         debug: ['', '1']
 
@@ -30,7 +30,7 @@ jobs:
     - name: install python dependencies
       run: |
         pip install --upgrade pip setuptools wheel && \
-        python setup.py install && \
+        pip install .
         test ${{ matrix.msgpack }} == 1 && pip install msgpack; \
         pip install pyflakes pycodestyle docutils codecov black==22.8.0
     - name: test
